@@ -11,7 +11,7 @@
     "db:generate": "drizzle-kit generate",
     "db:migrate": "drizzle-kit migrate",
     "db:studio": "drizzle-kit studio",
-    "postbuild": "drizzle-kit push"
+    "postbuild": "drizzle-kit push --force"
   },
   "dependencies": {
     "@ai-sdk/openai": "^2.0.56",
