@@ -25,12 +25,11 @@ const requestSchema = z.object({
   description: z.string().min(10, "Description must be at least 10 characters"),
   location: z.string().optional(),
   city: z.string().optional(),
-  budget: z
-    .preprocess(
-      (val) => (val === "" || val === null ? undefined : val),
-      z.coerce.number().nonnegative()
-    )
-    .optional(),
+  budget: z.preprocess((val) => {
+    if (val === "" || val === null || val === undefined) return undefined;
+    if (typeof val === "string") return Number(val);
+    return val;
+  }, z.number().nonnegative().optional()),
   scheduledAt: z.string().optional(),
 });
 
@@ -48,7 +47,7 @@ export function NewRequestForm() {
     setValue,
     watch,
     formState: { errors },
-  } = useForm<RequestFormData>({
+  } = useForm({
     resolver: zodResolver(requestSchema),
   });
 
@@ -177,7 +176,7 @@ export function NewRequestForm() {
         <div>
           <Label>Budget ($)</Label>
           <Input
-            {...register("budget", { valueAsNumber: true })}
+            {...register("budget")}
             type="number"
             step="any"
             placeholder="Optional"

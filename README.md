@@ -142,7 +142,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 1. **Sign Up**: User signs up via Clerk
 2. **Onboarding**: User selects CUSTOMER or WORKER role
-3. **Role-Based Access**: 
+3. **Role-Based Access**:
    - CUSTOMER → Access to `/dashboard` and customer features
    - WORKER → Access to `/provider` and worker features
 
@@ -162,6 +162,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 ## 🚦 User Roles
 
 ### Customer Flow
+
 1. Browse categories or search for workers
 2. Create service requests
 3. Receive proposals from workers
@@ -169,6 +170,7 @@ The application will be available at [http://localhost:3000](http://localhost:30
 5. Complete payment and leave reviews
 
 ### Worker Flow
+
 1. Complete worker profile
 2. Set service categories and pricing
 3. Set availability schedule
@@ -206,14 +208,14 @@ The application will be available at [http://localhost:3000](http://localhost:30
 
 ## 📝 Environment Variables Reference
 
-| Variable | Description |
-|----------|-------------|
-| `DATABASE_URL` | Neon PostgreSQL connection string |
-| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk publishable key |
-| `CLERK_SECRET_KEY` | Clerk secret key |
-| `WEBHOOK_SECRET` | Clerk webhook secret |
-| `OPENAI_API_KEY` | OpenAI API key for AI features |
-| `NEXT_PUBLIC_BASE_URL` | Base URL for the application |
+| Variable                            | Description                       |
+| ----------------------------------- | --------------------------------- |
+| `DATABASE_URL`                      | Neon PostgreSQL connection string |
+| `NEXT_PUBLIC_CLERK_PUBLISHABLE_KEY` | Clerk publishable key             |
+| `CLERK_SECRET_KEY`                  | Clerk secret key                  |
+| `WEBHOOK_SECRET`                    | Clerk webhook secret              |
+| `OPENAI_API_KEY`                    | OpenAI API key for AI features    |
+| `NEXT_PUBLIC_BASE_URL`              | Base URL for the application      |
 
 ## 🛡️ Security
 
@@ -258,4 +260,3 @@ For issues and questions, please open an issue on GitHub.
 ---
 
 Built with ❤️ using Next.js, Drizzle ORM, and Clerk
-
