@@ -1,4 +1,5 @@
 import Link from "next/link";
+import Script from "next/script";
 import { Button } from "@/components/ui/button";
 import {
   Card,
@@ -15,6 +16,39 @@ export default function Home() {
   return (
     <div className="min-h-screen flex flex-col">
       <Navbar />
+      <Script
+        id="ld-json-org"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "Organization",
+            name: "CommuneX",
+            url: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+            logo: "/vercel.svg",
+            sameAs: [],
+          }),
+        }}
+      />
+      <Script
+        id="ld-json-website"
+        type="application/ld+json"
+        dangerouslySetInnerHTML={{
+          __html: JSON.stringify({
+            "@context": "https://schema.org",
+            "@type": "WebSite",
+            name: "CommuneX",
+            url: process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000",
+            potentialAction: {
+              "@type": "SearchAction",
+              target:
+                (process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000") +
+                "/search?query={search_term_string}",
+              "query-input": "required name=search_term_string",
+            },
+          }),
+        }}
+      />
 
       {/* Hero Section */}
       <section className="container mx-auto px-4 py-24 flex flex-col items-center text-center">

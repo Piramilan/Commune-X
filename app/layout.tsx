@@ -15,9 +15,55 @@ const geistMono = Geist_Mono({
 });
 
 export const metadata: Metadata = {
-  title: "CommuneX - Local Service Marketplace",
+  metadataBase: new URL(
+    process.env.NEXT_PUBLIC_BASE_URL || "http://localhost:3000"
+  ),
+  title: {
+    default: "CommuneX - Local Service Marketplace",
+    template: "%s | CommuneX",
+  },
   description:
-    "Connect with local service providers for home repairs, cleaning, and more",
+    "Connect with local service providers for home repairs, cleaning, and more.",
+  keywords: [
+    "local services",
+    "home repair",
+    "cleaning",
+    "plumbing",
+    "electrician",
+    "landscaping",
+    "handyman",
+  ],
+  authors: [{ name: "CommuneX" }],
+  openGraph: {
+    type: "website",
+    url: "/",
+    siteName: "CommuneX",
+    title: "CommuneX - Local Service Marketplace",
+    description:
+      "Connect with local service providers for home repairs, cleaning, and more.",
+    images: [
+      {
+        url: "/vercel.svg",
+        width: 1200,
+        height: 630,
+        alt: "CommuneX",
+      },
+    ],
+  },
+  twitter: {
+    card: "summary_large_image",
+    title: "CommuneX - Local Service Marketplace",
+    description:
+      "Connect with local service providers for home repairs, cleaning, and more.",
+    images: ["/vercel.svg"],
+  },
+  alternates: {
+    canonical: "/",
+  },
+  robots: {
+    index: true,
+    follow: true,
+  },
 };
 
 export default function RootLayout({
